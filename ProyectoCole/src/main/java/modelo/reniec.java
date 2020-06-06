@@ -1,9 +1,6 @@
 
 package modelo;
 
-
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -42,8 +39,6 @@ public class reniec {
 
         //en la cadena output almacenamos toda la respuesta del servidor
         String output = sb.toString();
-        //convertimos la cadena a JSON a traves de la libreria GSON
-        JsonObject rootobj = new Gson().fromJson(output,JsonObject.class);
         
         conn.disconnect();
         return output;

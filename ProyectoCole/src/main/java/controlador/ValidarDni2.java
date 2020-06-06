@@ -5,10 +5,6 @@
  */
 package controlador;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -74,13 +70,7 @@ public class ValidarDni2 extends HttpServlet {
         }
         //en la cadena output almacenamos toda la respuesta del servidor
         String output = sb.toString();
-        //convertimos la cadena a JSON a traves de la libreria GSON
-        JsonObject rootobj = new Gson().fromJson(output,JsonObject.class);
-            
-        request.getSession().setAttribute("ape1", rootobj.get("apellido_paterno").getAsString());
-        request.getSession().setAttribute("ape2", rootobj.get("apellido_materno").getAsString());
-        request.getSession().setAttribute("nom", rootobj.get("nombres").getAsString());
-        request.getSession().setAttribute("dni", dni);
+        //convertimos la cadena a JSON a tra
         conn.disconnect();
         request.getRequestDispatcher("registroProfesor.jsp").forward(request, response);
         
